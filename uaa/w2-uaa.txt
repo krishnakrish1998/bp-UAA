@@ -1,0 +1,14 @@
+                                        UAA
+                             ADMINISTRATOR UI OVERVIEW
+-->UAA NAVIGATION
+       UAA Login,Profile & Support
+       UAA Navigation 
+       UAA Plugins 
+       UAA Nodes 
+       UAA Node Filters
+       UAA Adding Devices Manually 
+       UAA Adding Devices IP Discovery
+       UAA Adding Devices Bulk CSV
+       UAA Adding Devices API
+       UAA System Plugins
+       UAA Node Details

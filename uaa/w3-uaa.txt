@@ -1,0 +1,252 @@
+                 UAA Key Features,Advantages and Beninfits
+-->vSure Product Suite
+
+USE CASES:         FaultManagement 
+                   Performance Monitoring 
+                   Service Asuurance
+                   Ethernet SLA Management
+                   NFV & SDN Assurance
+                   Openstack & VIM Monitoring
+                   Network Topology
+
+
+Launch Fault Management:-
+  Consolidate all network and service alarms into a single pane of glass.
+  Identify root cause with rules and graph based correlaiton
+  Automate notifications and resoltion with workflow
+  Automatically suppress alarms during maintenance
+  Topological overlays
+  Self-service reporting and dashboards
+
+NFV & SDN Assurance:-
+  Visualize Network Assets and service chains
+  Visualize service impact
+  Assure multi-vendor VNFs
+  Assure Openstack and VIM
+  Closed-loop feedback and remediation with orchestration.
+
+Performance Management:-
+  Unified view of all network and serviceperformance data
+  Single-click navigation fromalarming to performance data
+  Baselining and dynamic thresholding to intelligently alarm performance issues
+  Interactice service,node and wnd point views
+  Self-service reporting and Dashboards
+
+Launch Service Assurance:-
+  
+ Service Assurance-
+   Visualize end-to-end hierarchial services graphically
+   Determine customer impact of service issues
+   Create,threshold,and report on Key QualityIndicators(KQIs)
+   Model SLAs based on KQIs
+   Track SLA conformance in real-time
+   Historical SLA reporting
+
+ETHERNET ASSURANCE:-
+  Discover Layer 2EVC's,VLAN's and Adjacencies directly from the network
+  Native support for Y.1731,802.1AG, and IP SLA
+    Delay,Jitter,Latency,Availability
+    Red,yellow,greeen frames
+  Logical and physical Topology
+  SLA Conformance Tracking
+  SLA Reporting
+
+Network Health Predictor:-
+
+WORKING-UAA platform collects data from Performace & Alarm Data(EMS),NE Specific 
+        Output(CLI),Topology Data and this sends data to NHP and this NHP 
+        sends that data to Blue Planet BigData Cluster.Here GPUBased modelling
+        and ML Training Servers,BP Data Science add modesl tuned and refined 
+        and set which AI/ML algorithm is correct for data those are again 
+        pushed to NHP.
+          This data fromNHP sent to Performance of Network Anomomlies.It is
+        divided into Swagger API,UAA UI.
+            In Swagger API has OSS/BSS and Ticketing systems
+            In UAA UI it has Customer Engineering and Operations
+
+__________________________________________________________________________________
+
+                              ARCHITECTURE
+
+Architecture
+Angular Client
+Application Server
+Database Server
+Mediation Server
+Open Platform
+
+
+-->Architecture
+   >HYPERSCALE ARCHITECTURE:-
+       Modular ultra-scalableclustering technology
+       Virtual and physical server deployments
+       On demand capacity expansion by adding instances
+                Mediation Server
+                Shard Database Server
+                Client Server
+       Application Server
+                Single instance
+
+
+-->Angular Client
+      Hosts the web based UI Framework
+      Single Instancessupports 25 concurrent users
+      Provide Business Dashboards
+      Provide Role Based Acess Control
+      Abality to integrate with external authentication(LDAP,TACACS+)
+
+>HTTP client is basically called as angular client server
+>Working and MODEL:-
+  It has Load Balancer which balances users across servers
+  Load Balancer is connected to UI FRAMEWORK,it consists of client servers 1 to N
+  It has RBAC aslo.RBAC,UI FRAMEWORK are in one level.
+  Graph Database works on topology,Application server works on Reports,charts data
+  Graph Database,Application server conneccted to UI Framework,RBAC both in one 
+  block
+
+-->Application Server:-
+     Centralized server-Single Instance
+     Performs Core Processing Functions
+     Communicates System Changes to Nediation Server
+     Hosts the Reporting Engine
+     Performs all Fault Automation Functions
+
+
+It has three levels:
+In first level it consists oftwo components connected each oother side by side
+ Client(Web UI)and Graph Database.
+These both are connected to second level Application Server.
+ It has workflow,correlation,Alarms/Events,Reports,Web services API,Suppression
+In level 3 it has two components Master Database Server(Master DB),Med Serve(1-N)
+  These both handles Data queries,Events & Configuration Data.
+In each and every level data flow in two ways
+
+
+-->DataBase server:
+>Distributed Persistance
+>Master Database
+    Provides entry single point for all data queries though data is distributed 
+       in shards.
+    Holds inventory and fault data
+    Distributes configuration data to shards
+>Graph-Single Instance
+     Netwrok Inventory and Relationships
+     Data source for topology visualization
+>Shards-Multiple Instances
+     Drivern by data processing
+     Performs Baseline
+     Holds Performance Data
+     Mediation servers push performance data to shards
+
+-->MEDIATION SERVER:
+>Distributed-MMultiple Instances
+>Mediateswith network elements
+>Collects and normalize the data
+>Number of Mediation Servers depend on
+     Number of end points
+         250k objects
+     Data Collection frequency
+     Number of Metrics
+
+WORKING & STRUCTURE:
+It has Application Server,Mediation Server,Shard server,Carrier Network
+Mediation Server has Discovery,Data Collection,Smart Plugins,Connection Mgmt
+ Synchronization.It is connected toShard server,carrier network.
+Application server sends events & inventoy data
+Shard server sends metrics data
+Carrier Networks sends events and metrics
+
+
+
+--In mediation server it has JBOSS,Kafka server(longevents,snmp trap)
+--Node sends Traps to the Kafka SNMP connector on anyof mediation server
+--Kafka SNMP connector listen on port 162 and collects ,converts SNMP Trap 
+   PDU's into event objects.SNMP Trap sends to Kafka Snmp Connector.
+   logevents sends to logtash collector.
+--Kafka consumer fromall the mediation servers read the snmp event but
+  only the mediation server which manages the corresponding node forwards
+  the Trap event for processing
+--Mediation server forwards the SNMP Trap event to SNMP Adaptor
+
+
+-->Open Platform:
+>Leverages modern open source technologies
+>Highly-available,geographially diverse,and tertiary configurations
+>Virtualand physical server deployments
+>Operating Systems Supported
+   CentOS 6,7
+   RHEL6,7
+>Database 
+    MariaDB v10.0
+>Syslog/Log Receiver
+    Logstash
+>Graph Database
+    Neo4j 3.2
+>UI Technologies
+    D3.js
+    Bootstrap.js
+    Angular/Node.js
+
+-->System Patches or Upgrades
+>Plug-ins are hot-swappable(no downtime)
+>Updated plug-ins are backward compatible through previous versions
+>New  plug-ins takes effect after download with no loss of data
+>SystemPatches require downtime,usually 30-60 mins
+
+______________________________________________________________________________
+
+                       RESOURCE ADAPTERS
+
+
+RESOURCE APAPTERS:It collects and stores data along with that.
+It aslo collect Physical,Logical inventory that has Cards,Port Descriptions,
+ Ports,Logical Ports,Provision Speed info and store,collect regularly.
+
+-->LAUNCH OSS/BSS Integrations:
+ >DevOps Ready:
+     Swagger based REST API
+     Integrate to a varietyof external systems including: Trouble Ticketing
+                                                          Billing
+                                                          Inventory Management
+                                                          Mapping Systems
+     Bi-directional data flow between systems to reduce swivel-chair operations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

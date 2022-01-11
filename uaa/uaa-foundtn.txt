@@ -1,0 +1,561 @@
+                                  UAA FOUNDATION
+          Lesson-1:
+          __________
+The course aimed at UAA end users includes administrators,network admins,noc engineers.
+It covers UAA product capabilities,high-level concepts,basics of UAA architecture.
+By end of this course we can perform UAA tasks:-
+               
+                   1>Create Topology Views
+                   2>Import or export objects in bulk using CSV files
+                   3>Create performance threshold policies
+                   4>Create alarm correlation polocies
+                   5>Create and assign node actions
+
+
+UAA-Introduuction:
+
+The problems faced by Service Providers are
+             1)Poor network visibility
+             2)Slow fault isolation & remedition
+             3)High operational costs
+
+->The above problems are raised because Older management systems are slow,complicated.
+->Assurance tools are based on closed software and Data Silos.
+->Customer experience will be poor because Service Providers has Fragmented workflows,
+   Manually Intensive operations,Low staff productivity,Multi-vendor,Multi-Domain &
+   Multi-Layer
+
+But with BLUE-PLANET UAA Service Providersbenift from Real-time data collection &
+  processing and using a Single data store combining with AI-powered Analytics
+The above features enable Unified Assurance workflows,Intelligent Automation,
+  High staff productivity,Business Growth.
+
+>>Better visualization,Alarm,Event,Performance Management help in Faster isolation &
+   prioritizationthis leads to faster resolution & lower costs.
+>>Both End to end network service visibility and predicitive Analytics combine allows
+  pre emptive actions on potential service issues as well as service level agreements
+  (SLA)Compliance leads to Customer Trust & Loyality.
+
+UAA also has Seamless integration with software defined systems,closed-loop automation
+  self-healing,Adaptive network
+
+
+                           UAA Key Components
+
+1]SLA Management
+2]Resource Adaptors
+3]Performance Management
+4]Fault Management
+5]Ethernet Asuurance
+
+   UAA Process
+
+It starts with Resouce adaptors it have produtised resource adaptors for performance
+ and fault managements capabilities.
+It has UAA platforms which acts as base for data normalisation,data processing,
+ data storage capablities
+On above UAA platform there are several applications for specific operational use
+ such as Fault management,performance management,dashboards
+On above FM,PM there are Ethernet Assurance,Servie Assurance which provides
+ end to end multi-vendor,multi service performance and alarm visualtisation.
+ This focuses on monitoring and alerting you in when configured thresholds crossed
+SLA Management for SLA thresholding & monitoring
+
+
+With usage of BLUE-PLANET you can avoid
+              1}Network outages
+              2]Speed network problem resolution
+              3]Maximize staff productivity
+              4]Consistent quality to meet SLA Comliance
+
+
+
+
+FEATURES OF  UAA::
+1>It can be used in mobiles,desktop or any browser.
+2>It allows us to see service network,infrastructure in multiple ways.
+3>You can see LOGICAL or PHYSICAL view of Network
+4>You can also visualise Service & cross domain Networks
+5>With this granular view we can manage network and resource in better way
+
+
+UAA is Multi-Vendor,Multi-Technology platform that interface with wide range of 
+network devices such as:-Mobile Devices,SONET,Optical Deices,L2 Switch,L3 Router,VPN
+
+It uses RESOURCE ADAPTORS and transfers info from devices in UAA
+we can Discover devices & inventory
+       Receive & Synchronize Alarms events
+       Collect performance metrics
+       Collect Topology &service information
+       L2,L2.5,L3-VLANS,EVCs[Ethernet Virtual Connections],VRFs
+
+UAA connect through multiple protocols such as SNMP,TL1,REST,Netconf
+-->
+
+UAA Leverages about 1000 Resource Adaptors.
+Support for 200+ Vendors.
+Resource Adaptors & DashBoards are customizable.
+Simple drag and delievery model.
+Predictable Costs.
+In UAA Alarms,Event Summaries,Reports & DashBoards,Top-N,Capacity Planning,Topology are 
+created according to requirements.
+DashBoards contains Fault & performance of networks
+
+To provide graph based alalytics it uses.
+Optical Layers,Layer 2,2.5,3,Ethernet,IP,VPNs
+
+                               Lesson-2::
+
+                                Working with  UAA
+
+In this lesson, we will focus on working with UAA to create topology views and import 
+objects in bulk using CSV files. We will also create performance threshold policies 
+and alarm correlation policies.Finally,we will explore what node actions are and see
+how they are used. Each video will cover a single topic. Let's begin.
+
+
+Creating Topology Views::
+
+UAA gives you both a logical and a physical view of your network. 
+Along with both views it also provides customized Topological views which will aid in 
+faster fault finding and quicker trouble resolution.the custom topology view feature to 
+better manage your network.
+
+TOPOLOGICAL NETWORK VIEW:You can see the Nodes connections between them and services 
+which are overlayed on the physical map of geography.You can check the network with
+weather with options such as Temperature,Cloud,Pressure,Wind speed,Rain,Precipitation
+It can have filters such IP,Ethernet options in Layer All dropdown menu.
+
+
+Bulk Import of UAA Objects using CSV Files
+
+UAA Administrators may need to import or export many different types of objects into 
+or out of UAA. CSV files are an efficient method of performing these tasks. There is 
+support for numerous types of objects such as nodes, end-points, trouble ticket settings,
+Performance automation scripts and more. 
+***
+A Comma Separated Value[CSV] file is a plain text file that contains a List of data.
+**CSV file has simple structure it consists of List of Data with Comma.
+-->But in UAA CSV files consists of two parts:-Header,Body
+-->Header contains first two lines of file.
+    The first line contains a string that defines the object being imported or exported
+    The second line contains comma separated list of column names 
+-->Body::The column names mapped to values are assigned in body section.
+      Valid column names are defined by object in first line
+Such CSV file are used to exchange data between different applications.
+In UAA we make use of CSV files to import or export information on nodes,services and 
+objects on bulk.
+
+You can aslo import data by using other methods like api.
+***
+Object types examples:
+Endpoints       
+Access Control Lists
+Node actions
+Trouble Ticket Settings
+Sub-networks
+Service Types
+
+
+UAA continuously scan the directory for new or any change in CSV files and imports these
+files into application.The import process consists of passing files and applying changes
+to Database
+To export data we need to place export request CSV file in UAA IMPORT DIRECTORY,Once 
+UAA imports the request file it exports relevant object in batch mode in UAA EXPORT
+DIRECTORY.The object type can be exported can be specified in request file
+
+
+
+
+Performance Threshold Policies
+
+UAA gives you options to create custom performance threshold policies using logical 
+operators, multiple criteria, and even dead banding support. Network administrators can 
+specify conditions on performance thresholds allowing for greater control over the 
+network and resulting in lesser events.
+
+
+It allows users to create policies to control actions when thresholdds are crossed alarms
+are raised
+
+UAA allows user to specify Multiple Criteria for setting up Performance Threshold Policy
+using LOGICALOPERATORS called::
+                                AND
+                                OR
+                                NONE
+
+AND::                               OR::                       NONE::                 
+      ABSOLUTE                   ABSOLUTE                   While using
+        AND                          OR                        SINGLE
+      PERCENTILE                 PERCENTILE                  Criteria
+
+DEADBAND
+It aslo supports DeadBand.Its an alarm range when no reset action occur.It has
+high alarm and low alarm.
+It helps in provides a buffer before alarm clears,reduces alarm fapping,
+reduces false positives,gives user confidence that alarm cleared
+
+->You can also configure threshold by MULTIPLE POLLONG PERIODS
+
+
+Alarm Correlation Policies
+
+The Alarms and Events feature allows you to view and manage network and service alarms. 
+Although Alarm correlation is automatic and available out of the box, alarm Correlation
+ policies give Network Admins and NOC Engineers the ability to group alarms and correlate 
+them using multiple criteria and conditions. This helps reduce the overall events and the 
+number of alarms, thereby helping in faster fault isolation.
+
+
+CREATING ALARM CORRELATION POLICIES:-
+
+-->UAA has graph based correlation alarms by default.
+-->If you need additional alarm correlation you can add manually filters to group certain
+      types of alarm together based on criteria SAAS,SUB NETWORK,alarms originated from same
+      node
+
+
+
+
+Node Actions
+
+Whenever a problem occurs on a node, usually it involved carrying out a series of tasks like
+ looking up how to connect to that node, checking multiple screens, connecting to the node, 
+ executing diagnostic queries, and checking the response from the node. Node actions let you 
+ automate all these tasks into a single node action by using a script which makes it easier 
+ for a NOC user to find out the issue with the node. This reduces effort and saves time.
+
+
+
+-->Node actions are automated actions that can be performed on node
+-->They can be of two types:1]SCRIPT
+                            2]URL
+ 1]SCRIPT:-You can specify a script that executed when node action is performed
+    EG:Reboot a server,Spike CPU U sage,Ping a node.
+ 2]URL  :-It allows you to specify the URL that is executing
+    EG:Blueplanet.com
+-->Node actions group together in node action template.
+-->A node action template is a collection of pre defined tasks  that can be executed on 
+    node when desired. 
+-->Node actions can be configured to perform any number of tasks including
+       Running Test Ping,Run a Trace Route,Reboot a server,Run Diagnostic,Spike CPU Usage,
+       Test SNMPv2 Walk.
+
+
+___________________________________________________________________________________________________
+
+
+                     BLUE PLANET UAA 20.10 ARCHITECTURE OVERVIEW  
+                     ___________________________________________
+
+**HIGH LEVEL ARCHITECTURE CHANGES IN UAA for 20.10
+**NEW TECHNOLOGIES USED AT DIFFERENT LEVELS
+**UNDERSTAND THE DATA FLOW IN NEW ARCHITECTURE
+
+The new changes are::
+  -->  Retains the usability & scalability
+  -->  Natice Clustering ability
+  -->  Faster query processing
+
+
+
+                       ::In older vsure architecture:
+   --STRUCTURE--
+-->It has Client Cluster & Mediation Cluster and in between them it has Dtabase & Analytics,
+    High availability.
+-->In client cluster it has several clients.
+-->In Mediation luster it has Mediation,High availability.
+
+It works :::
+   1]RPM pacakage distribution
+   2]Front End:Angular & Node JS
+   3]Back End:Java
+   4]Linear scaling ability
+
+
+Its DRAWBACKS:
+      -->Users need to remember which node is connecting to which mediation server
+      -->Book keeping is a challenge at scale(need for book keeping of nodes to mediation 
+            server to ensure end points of same service on same mediation server
+      -->Redundant servers to maintain high availability
+
+
+                ::In New vsure Architecture::
+
+-->Native clustering in every level
+-->Endpoint of service no longer need to be in same mediation layer,this makes Book keeping
+    is easier,simplified
+It Features::
+
+1]Book keeping is simplified
+2]Easier to maintain High availability
+3]RPM package distribution changed to Containerization
+
+   -- STRUCTURE--
+-->It has Client Cluster,Database & Analytics Cluster,Mediation Cluster,
+    Data Collection cluster.
+-->In client cluster it has several clients it is connected to Database & Analysis Cluster.
+-->Mediation Cluster is conned to to second layer that is Database & Analytics Cluster.
+-->Data Collection Cluster is last layer and connected to its above layer Mediation Cluster
+-->In client cluster it has several clients,
+   In 2nd layer Database & Analytics cluster it has database & analytics
+   In 3rd Mediation cluster it has mediation
+   In Data Collection cluster it has Nifi and there are several data collection clusters 
+     connected to Mediation cluster.
+
+--HIGH LEVEL DATAPRPCESSING ARCHITECTURE:-	
+
+--->Starts at LWDC(LIGHT WEIGHT DATA COLLECTOR)Cluster small easy to deploy stateful protocol
+     gateway using Nifi for flexibility supporting deployment process or messages sent to 
+     next cluster named MessagingCluster
+    LWDC is small,stateful,lightweight and uses Apache NiFi.
+-->Messaging Cluster has Kafka 
+-->Those arepushed to fromMessaging cluster to Mediation cluster.
+-->Mediation cluster runs on Akka and it has Resource Adaptors,here data is normalised and 
+   then goes back to Messaging Cluster.
+-->When data comes from Meiation Cluster to Messaging cluster this time data splits into
+   different streams ie three streams.
+      --One streamgoes into Database Cluster to store
+      --The Alarming data goes into Application Server where necessary actions can be taken
+      --Third stream goes to Analytics Cluster which can be used to make various inferences
+-->Another functionality of Kafka in Messaging cluster is support external data lakes.
+-->Customer can tap into Data lake and create their own use cases
+
+
+CHANGE IN Technologies::
+
+                  Old Architecture                         New Architecture
+
+
+Application    1)JBoss J2EE Application Server               1)Open EJB/TomEE
+  Server       2)Fault Processing                            2)Akka               
+                      
+ 
+Database          Maria DB                                 Postgress/Clickhouse
+                Alarm & Configuration DB                        Postgress
+                  Performance Data                             Clickhouse
+                    Neo4j                                        Neo4jEE
+
+
+ADVANTAGES OF NEW STRUCTURE:
+                        1]Simplified high availability and scale out
+                        2]Incresed throughput
+                        3]Smaller footprint
+                        4]Reduced latency & reduced query times
+
+___________________________________________________________________________________________
+
+
+                     ADMINISTRATOR SYSTEM OVERVIEW
+It has two lectures Product Suite-1,Product Suite-2
+
+UAA Product Suite - Part 1
+
+
+This video provides an admin overview of the UAA product suite, including fault management,
+ performance management, service assurance, ethernet assurance and NFV/SDN Assurance.
+
+
+vSure Product Suite
+
+Use Cases:
+         Fault Management
+         Performance Monitoring
+         Service Assurance
+         Ethernet SLA Management
+         NFV & SDN Assurance
+         Openstack & VIM monitoring
+         Network Topology
+
+-->Fault Management:
+    Consolidate all networks and service alarms into a single pane of glass
+    Identify root cause with rules and graph based correlation
+    Automate notifications and resolution with workflow
+    Automatically suppress alarms during maintenance
+    Topological overlays
+    Self-servicereporting and daashboards
+
+-->Performance Management:
+   Unified of all network and service performance data
+   Single click navigation from alarming to performance data
+   Baselining and dynamic thresholding to intelligently alarm performance issues
+   Interactive service,node,end point views
+   Self-service reporting and dashboards 
+
+-->Service Assurance
+    Visualize end to end and hirerachal services graphically
+    Determine customerimpact of service issues
+    Create,threshold and report on Key Quality Indicators(KQIs)
+    Model SLAs based on KQIs
+    Track SLAconformance in real-time
+    Historical SLA reporting
+
+-->Ethernet Asuurance
+   Discover layer 2 ECV's,VLAN's and Adjacencies directly from network
+   Natice Support for Y.1731,802.1AG and IP SLA
+       Delay,Jitter,Latency,Availability
+       Red,Yellow,Green frames
+   Logicaland Physical Topology
+   SLA Conformance Tracking
+   SLA Reporting
+
+-->NFV & SDN Assurance
+   Visualize Netwrok Assets&Service Chains
+   Visualize service impact 
+   Assure multi-vendor VNFs
+   Assure Openstack and VIM
+   Closed-loopfeedback and remedition with orchestration
+
+UAA Product Suite – Part 2
+
+This video provides an admin overview of the UAA product suite, including visualization, 
+multi-technology support, plug-ins, graph-based analytics, reporting, dashboards, automation,
+ notification, network discovery, topology, DevOps, Lifecycle support and licensing.
+
+-->Intuitive Visualization:
+     Service,network,infrastructure visualization
+        logical
+        physical
+        cross domain
+     Single platform for desktop,tablet and mobile devices
+     Empowers users
+
+-->INterface with Multi-Technology Support for any Technology or Service
+      Out of box comprehenisve device support
+        Device Inventory
+             Physicalequipment
+             Physical ports
+             Logical ports
+             Active tests
+             L2,L2.5,L3 concepts
+             Vendor specific
+        Event and alarm processing rules
+        Performance metrics and KPIs
+        Network Topology Discovery
+      SNMP,TL1,COBRA,SOAP,REST,ASCII protocols
+
+
+
+--->**SMART PLUG-INS
+         >Time to Market
+           *Leverage on 1000+Smart Plugins
+           *Support for 135+ vendors
+           *No more delaysintroducing new versions
+          >Simplicity
+             Drag and dropdelievery model
+             No more PERL scripts 
+             No more Consulting Resources
+             Configuration vs coding
+          >Predictable Costs
+             Day one-fixed cost independent of complexity of integration
+             On going-No worries about upgrades,budget overflows,etc
+
+
+---->GRAPH Based Analytics
+      >Relationships are key in event analysis
+      >Graph analytics enable relationship analysis at scale
+      >Out of box corelation scenarios
+           SDN 
+           IP VPN 
+           Topological  
+           Cross domain
+      >Enabled by smart plug-ins
+
+-->Self Service Reporting & Dashboards
+        Easy to create and share
+            Alarm & event summaries
+            Top-N 
+            Capacity planning 
+            Topological views 
+            Dashboards  
+            Customer portaks
+        Scheduling & exporting options
+
+--->Point and click Automation & Notification
+    Easy to use,template-driven
+    Open and extensible
+    Empowers business users
+
+--->Network discovery & topology
+     snmp based ntwk discovery
+        L2 Adjacencies,VLANs,EVCs
+        L3 subnets
+     Bulk import &API integration capabilities
+     self service multi layer topological views
+
+
+
+Devops Ready:
+
+ Swagger based REST API
+ Integrate to variety of external systems
+    Trouble ticketing 
+    Billing 
+    Mapping systems
+    Inventory management
+ Bi directional data flow between systems to reduce swivel-chair operations
+
+
+Licensing
+       
+         Fault Management
+         Performance Monitoring
+         Service Assurance
+         Ethernet 
+         SLA Management
+         Foundations
+         Smart plugins
+
+__________________________________________________________________________________________
+
+
+                              UAA ARCHITECTURE
+
+-->Hyperscale Architecture
+
+        Modular ultra scalable clustering technology
+        virtual and physical server deployments
+        on demand capacity expansion by adding instances
+           mediation server
+           shared database server
+           client server
+        Application Server
+            single instance
+           
+-->Angular Client Server
+    Hosts the web based UI framework
+    Single instance upports 25 concurrent users
+        Provides Business Dashboards
+    Provides Role Bsed Access Control
+Ability to integrate with external authentication
+
+--->Application server
+    Centrailized server-single instance
+    Performs core processing functions
+    communicates system changes to mediation server
+    Hosts the reporting Enigine
+    Performs all Fault Automation Functions
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
